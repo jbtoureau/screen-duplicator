@@ -6,12 +6,13 @@ import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
 
-
+/**
+ * The rectangle shape defining the screen zone to duplicate.
+ * @author JBT
+ *
+ */
 public class ScreenZone extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -8027935798586038816L;
 	Rectangle screenZone;
 	final Screenshooter sS;
@@ -30,7 +31,7 @@ public class ScreenZone extends JFrame {
                   //e.getWindow().setVisible(false);
                   sS.handle(Constants.SCREENZONE_CLOSEDBYUSER);
             }
-   });
+		});
 	}
 	
 		
@@ -38,9 +39,4 @@ public class ScreenZone extends JFrame {
 		return new Rectangle(this.getBounds());
 	}
 	
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		if(e.getSource() == this){
-		}
-	}
 }
