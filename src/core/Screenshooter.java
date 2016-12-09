@@ -6,6 +6,11 @@ import java.awt.Robot;
 import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 	
+/**
+ * 
+ * @author JBT
+ *The core class that allows handling images and screen captures.
+ */
 public class Screenshooter{
 
 	private Robot robot;
@@ -45,6 +50,13 @@ public class Screenshooter{
 		}			
 	}
 	
+	/**
+	 * Compares two images, pixel by pixel
+	 * @param img1
+	 * @param img2
+	 * @return <code>false</code> if images sizes are different or if at least 1 pixel does not match
+	 * else return <code>true</code>
+	 */
 	public boolean bufferedImagesEqual(BufferedImage img1, BufferedImage img2) {
 	    if (img1.getWidth() == img2.getWidth() && img1.getHeight() == img2.getHeight()) {
 	        for (int x = 0; x < img1.getWidth(); x++) {
@@ -70,12 +82,16 @@ public class Screenshooter{
 	public void setScreenZone(Rectangle screenZone) {
 	}
 	
-	/*return false if operation is not done */
-	public boolean handle(int msg) {
-		// TODO Auto-generated method stub
+	/**
+	 * @param msg
+	 * The msg value is compared to the <code>Constants</code> values and accordingly execute the action.
+	 * If msg is not in Constants values, nothing is done.
+	  **/
+	public void handle(int msg) {
+		//TODO exception to be thrown if msg is not in Constants
+		//TODO refactor the different cases in separated methods
 		switch(msg){
 			case Constants.SCREENZONE_SHOW:{
-
 				System.out.println("sZ is visible");
 				sZ.setVisible(true);
 				break;
@@ -98,18 +114,15 @@ public class Screenshooter{
 				setRunning(true);
 				Thread t = new Thread(){
 					public void run() {
-						// TODO Auto-generated method stub
 						while(isRunning()){
 							mainFrame.updateDisplay();
 							try {
 								//System.out.println(getFps());
 								Thread.sleep((long) (1000/getFps()));
 							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
-						}
-						
+						}				
 					}
 				};
 				t.start();
@@ -119,7 +132,6 @@ public class Screenshooter{
 				break;
 			}
 		}
-		return true;
 	}
 
 	public boolean isRunning() {
