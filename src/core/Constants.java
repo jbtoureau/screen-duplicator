@@ -1,5 +1,9 @@
 package core;
-
+/**
+ * 
+ * @author JBT
+ *The constants used as references.
+ */
 public final class Constants {
 
 	public static final int SCREENZONE_SHOW = 1;

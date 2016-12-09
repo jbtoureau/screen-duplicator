@@ -14,7 +14,11 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
-
+/**
+ * 
+ * @author JBT
+ *
+ */
 public class MainFrame extends JFrame implements ActionListener{
 
 /**
