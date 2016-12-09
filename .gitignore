@@ -11,4 +11,18 @@
 hs_err_pid*
 /bin/
 /.git/*
-/.settings/*
+
+## Eclipse files
+.metadata
+.gradle
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.project
+.classpath
